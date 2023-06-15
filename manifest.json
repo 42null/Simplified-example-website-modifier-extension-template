@@ -1,14 +1,14 @@
 {
   "manifest_version": 3,
   "name": "Example Webextension",
-  "version": "2.3.1",
+  "version": "2.3.2",
   "author": "42null",
-  "description": "An extension making YouTube look like it used to before everything became rounded and circular with customisable settings.",
+  "description": "An example extension",
   "homepage_url": "https://github.com/42null/Return-YouTube-UI",
 
   "browser_specific_settings": {
     "gecko": {
-      "id": "{6d38b91b-577a-4e14-a402-caa8e2080ccd}"
+      "id": "{020ca5d0-0cfd-4bd3-82d4-d85b240d3714}"
     }
   },
 
@@ -18,7 +18,10 @@
     "tabs"//Used to open on install/updae page
   ],
   "host_permissions": [
-    "*://*.youtube.com/*"
+    "*://*.example.com/",
+    "*://*.example.net/",
+    "*://*.example.org/",
+    "*://*.example.edu/"
   ],
   "background": {
     "scripts": ["background/background.js"]//Used to trigger on install/update page
@@ -59,7 +62,12 @@
         "projectConfiguration.json",
         "icons/*"
       ],
-      "matches": ["*://*.youtube.com/*"]
+      "matches": [
+        "*://*.example.com/",
+        "*://*.example.net/",
+        "*://*.example.org/",
+        "*://*.example.edu/"
+      ]
     }
   ],
   "icons": {

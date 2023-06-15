@@ -4,8 +4,8 @@
   "log_header_internal": "Internal",
   "DEFAULT_CHANGE_SETTINGS": {
     "BOOLEAN_VALUE_KEY":           {"value": true, "displayName": "Search Bar"},
-    "NUMBER_VALUE_KEY":            {"value": 0.5,  "displayName": "Radius in em",  "min": 0, "placeholder": 0.5},
-    "NUMBER_WITH_ALL_OPTIONS_KEY": {"value": 5,    "displayName": "Content width %", "min": 50, "max": 100, "needsReload": false, "step": 5, "placeholder": 50}
+    "NUMBER_VALUE_KEY":            {"value": 1,    "displayName": "Radius in em", "min": 0, "placeholder": 0},
+    "NUMBER_WITH_ALL_OPTIONS_KEY": {"value": 5,    "displayName": "Radius in em", "min": 0, "max": 20, "needsReload": false, "step": 0.4, "placeholder": 0.5}
   },
   "popup_page": {
     "top_image": {
@@ -36,7 +36,7 @@
       "firefox": {
         "name": "Add-Ons",
         "icon_url": "/icons/Fx-Browser-icon-fullColor.svg",
-        "link_url": "https://addons.mozilla.org/en-US/firefox/addon/return-youtube-ui/"
+        "link_url": ""
       }
     }
   }

@@ -115,6 +115,20 @@ button:hover {
 /*  background-color: var(--md_light);*/
 /*}*/
 
+
+input + .slider:before {
+  background-color: var(--md_light);
+}
+input:checked + .slider:before {
+  background-color: var(--md_primary);
+}
+input + .slider {
+  box-sizing: border-box;
+  border: var(--md_light) 2px solid;
+}
+input:checked + .slider {
+  border-width: 0;
+}
 input:checked + .slider {
   background-color: var(--md_light);
 }

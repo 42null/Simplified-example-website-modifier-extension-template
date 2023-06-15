@@ -2,6 +2,6 @@
     --example-extension-new-page-content-border-radius: 0;
 }
 
-.vsc-initialized.hasVerticalOverflowCausingHorizontal{
+.vsc-initialized.hasVerticalOverflowCausingHorizontal > div{
     border-radius: var(--example-extension-new-page-content-border-radius);
 }
