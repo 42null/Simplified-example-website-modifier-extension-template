@@ -1,27 +1,22 @@
 {
-  "extension_display_name": "Return Youtube UI",
-  "log_header": "Return Youtube UI",
+  "extension_display_name": "Example Extension",
+  "log_header": "Example extension log",
   "log_header_internal": "Internal",
   "DEFAULT_CHANGE_SETTINGS": {
-    "VIDEOS_PER_ROW":                    {"value": 4,    "displayName": "Videos Per Row", "min": 1, "placeholder": 4},
-    "UN_ROUNDED_SEARCH":                 {"value": true, "displayName": "Search Bar"},
-    "UN_ROUNDED_THUMBNAILS_AND_PLAYERS": {"value": true, "displayName": "Thumbnails"},
-    "UN_ROUNDED_MENUS":                  {"value": true, "displayName": "Menus"},
-    "SUBSCRIBE_BUTTON_COLOR":            {"value": true, "displayName": "Subscribe Color"},
-    "SUBSCRIBE_BUTTON_SHAPE":            {"value": true, "displayName": "Subscribe Shape"},
-    "PERCENT_MORE_SPACE_TO_ACTIONS_BAR": {"value": 5,    "displayName": "Actions Space %", "min": 0, "max": 15, "needsReload": true, "step": 5, "placeholder": 5},
-    "BAR_BUTTONS":                       {"value": true, "displayName": "Action Boarders"}
+    "BOOLEAN_VALUE_KEY":           {"value": true, "displayName": "Search Bar"},
+    "NUMBER_VALUE_KEY":            {"value": 0.5,  "displayName": "Radius in em",  "min": 0, "placeholder": 0.5},
+    "NUMBER_WITH_ALL_OPTIONS_KEY": {"value": 5,    "displayName": "Content width %", "min": 50, "max": 100, "needsReload": false, "step": 5, "placeholder": 50}
   },
   "popup_page": {
     "top_image": {
-      "src": "/icons/ReturnYouTubeUIIconV2R2_512.png",
-      "alt": "[Return Youtube UI Logo]",
+      "src": "/icons/logo.svg",
+      "alt": "[Example Project's Icon]",
       "title": "Thanks for installing! :)"
     },
     "colors": {
-      "primary": "#14d1d1",
-      "primary_light": "#69ffff",
-      "primary_dark": "#009fa0",
+      "primary": "#8bda67",
+      "primary_light": "#1a5200",
+      "primary_dark": "#c2ed7d",
       "primary_light_background": "#e1e2e1",
       "primary_light_foreground": "#f5f5f6",
       "primary_text": "#000000",
@@ -31,12 +26,12 @@
   },
   "link_sites": {
     "link_sites_header": "View Extension On...",
-    "popup_page_footer_bottommost_message": "(Project under active development)",
+    "popup_page_footer_bottommost_message": "(Add a footer message here)",
     "sites": {
       "github": {
         "name": "Github",
         "icon_url": "/icons/github-mark.png",
-        "link_url": "https://github.com/42null/Return-YouTube-UI"
+        "link_url": "https://github.com/42null/Simplified-example-website-modifier-extension-template.git"
       },
       "firefox": {
         "name": "Add-Ons",

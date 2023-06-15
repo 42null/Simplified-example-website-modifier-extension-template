@@ -13,9 +13,9 @@ https://m2.material.io/resources/color/#!/?view.left=0&view.right=1&primary.colo
   The colors below will not be used by the extension.
   */
   /*TODO: Important: Works on only 2nd+ opening of popup*/
-  --md_primary: #14d1d1; /*In projectConfig*/
-  --md_light: #69ffff; /*In projectConfig*/
-  --md_dark: #009fa0; /*In projectConfig*/
+  --md_primary: #8bda67; /*In projectConfig*/
+  --md_light: #1a5200; /*In projectConfig*/
+  --md_dark: #c2ed7d; /*In projectConfig*/
   --md_greyBack: #e1e2e1; /*In projectConfig*/
   --md_greyFore: #f5f5f6; /*In projectConfig*/
   --md_textOnP: #000000; /*In projectConfig*/
@@ -38,7 +38,7 @@ html, body {
   font-family: Gotham, system-ui;
   margin-top: -5px;
   border-radius: 0;
-  text-align: justify;
+  text-align: center;/*justify;*/
   background-color: var(--md_greyFore);
 
   scrollbar-color: var(--md_dark) inital;

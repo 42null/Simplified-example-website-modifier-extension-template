@@ -55,7 +55,7 @@ document.head.appendChild(helperFunctions);
 
 script.innerHTML = `
     function applyGeneratedScripts(){
-        console.log("[Return Youtube UI]: Activator call was received");
+        console.log("[Example Webextension]: Activator call was received");
     `;
 
 
@@ -134,7 +134,7 @@ injectedInvisibleClickable.nodeName = "returnYoutubeUI_invisibleClickable";
 document.body.appendChild(injectedInvisibleClickable);
 activator.innerHTML+= `
     document.getElementById("returnYoutubeUI_invisibleClickable").addEventListener("click", function(){
-        console.log("[Return Youtube UI]: injectedInvisibleClickable was 'clicked'");
+        console.log("[Example Webextension]: injectedInvisibleClickable was 'clicked'");
         applyGeneratedScripts();
     });
 `;
@@ -143,5 +143,5 @@ document.body.appendChild(injectedDiv);
 document.body.appendChild(activator);
 
 document.getElementById("returnYoutubeUI_invisibleClickable").addEventListener("change", function(){
-    console.log("[Return Youtube UI]: injectedInvisibleClickableChangeListener");
+    console.log("[Example Webextension]: injectedInvisibleClickableChangeListener");
 });

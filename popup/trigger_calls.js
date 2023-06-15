@@ -4,14 +4,14 @@ const settingsListElement = document.getElementById("settingsOptionsList");
 
 // CREATE TABLE
 getApplySettings(KEY_STORAGE_LOCAL_APPLYING_SETTINGS).then((applySettings) => {
-    console.log("[Return Youtube UI]: Initial applySettings:", applySettings);
-    console.log("[Return Youtube UI]: Settings used:");
+    console.log("[Example Webextension]: Initial applySettings:", applySettings);
+    console.log("[Example Webextension]: Settings used:");
     const keys = Object.keys(applySettings);
     for (let i = 0; i < keys.length; i++) {
         const key = keys[i];
         const displayName = applySettings[keys[i]].displayName;
         const value = applySettings[keys[i]].value;
-        console.log("[Return Youtube UI]:   " + key + ": " + value);
+        console.log("[Example Webextension]:   " + key + ": " + value);
 
         // Table Builder
         const row = settingsListElement.insertRow();
@@ -90,7 +90,7 @@ function listenForClicks() {//TODO: Merge components with getApplySettings initi
          * Just log the error to the console.
          */
         function reportError(error) {
-            console.error(`[Return Youtube UI]: Could not edit page, most likely page is not permitted in manifest: ${error}`);
+            console.error(`[Example Webextension]: Could not edit page, most likely page is not permitted in manifest: ${error}`);
         }
 
         /**
@@ -168,7 +168,7 @@ function listenForClicks() {//TODO: Merge components with getApplySettings initi
 function reportExecuteScriptError(error) {
     document.querySelector("#popup-content").classList.add("hidden");
     document.querySelector("#error-content").classList.remove("hidden");
-    console.error(`[Return Youtube UI]: Failed to execute content script: ${error.message}`);
+    console.error(`[Example Webextension]: Failed to execute content script: ${error.message}`);
 }
 
 /**

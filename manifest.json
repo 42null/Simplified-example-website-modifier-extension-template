@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
-  "name": "Return YouTube UI",
-  "version": "2.3.0",
+  "name": "Example Webextension",
+  "version": "2.3.1",
   "author": "42null",
   "description": "An extension making YouTube look like it used to before everything became rounded and circular with customisable settings.",
   "homepage_url": "https://github.com/42null/Return-YouTube-UI",
@@ -26,19 +26,24 @@
   },
 
   "action": {
-    "default_icon": "icons/ReturnYouTubeUIIconV2R2_512.png",
+    "default_icon": "icons/logo.svg",
     "theme_icons": [{
-      "light": "icons/ReturnYouTubeUIIconV2R2_512.png",
-      "dark": "icons/ReturnYouTubeUIIconV2R2_512.png",
+      "light": "icons/logo.svg",
+      "dark": "icons/logo.svg",
       "size": 32
     }],
-    "default_title": "Return YouTube UI",
+    "default_title": "Example Extension",
     "default_popup": "popup/popup.html"
   },
 
   "content_scripts": [
     {
-      "matches": ["*://*.youtube.com/*"],
+      "matches": [
+        "*://*.example.com/",
+        "*://*.example.net/",
+        "*://*.example.org/",
+        "*://*.example.edu/"
+      ],
       "js": ["triggerSetup.js", "injectionInjector.js"]
     }
   ],
@@ -57,8 +62,11 @@
       "matches": ["*://*.youtube.com/*"]
     }
   ],
-
   "icons": {
-    "512": "icons/ReturnYouTubeUIIconV2R2_512.png"
+    "16": "icons/logo.svg",
+    "48": "icons/logo.svg",
+    "128": "icons/logo.svg",
+    "512": "icons/logo.svg"
   }
 }
+
