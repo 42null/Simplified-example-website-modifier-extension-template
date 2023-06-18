@@ -1,0 +1,7 @@
+:root{
+    --content-border-radius: 0em;
+}
+
+body.vsc-initialized > div{
+    border-radius: var(--content-border-radius);
+}

@@ -41,7 +41,12 @@ function logWithConfigMsg(...messages){
 }
 
 determinedBrowserAPI.permissions.request({
-    permissions: ['*://*.youtube.com/*']
+    permissions: [
+        "*://*.example.com/",
+        "*://*.example.net/",
+        "*://*.example.org/",
+        "*://*.example.edu/"
+    ],
 }, function(granted) {
     if (granted) {
         logWithConfigMsg("Permission granted for access without clicking the extension button each time");

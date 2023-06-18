@@ -37,15 +37,17 @@ getApplySettings(KEY_STORAGE_LOCAL_APPLYING_SETTINGS).then((applySettings) => {
 
             localCopyApplySettings[key].value = input.checked; // Change a setting
             applySettingsUpdate();
-        }else if(Number.isInteger(parseInt(value))){
+        }else if(!isNaN(Number.parseFloat(value))){
             const label = document.createElement('label');
             label.classList.add("integerBox");
             const input = document.createElement('input');
+            const placeHolder = applySettings[keys[i]].placeHolder;
             input.type = "number";
             input.id = "idAuto_" + key;
             input.name = "nameAuto_" + key;
-            input.value = parseInt(value);
-            input.placeholder = parseInt(4);
+
+            input.value = Number(value);
+            input.placeholder = Number(placeHolder);
             // Check if min and max settings were used
             if(typeof applySettings[keys[i]].min){
                 input.min = applySettings[keys[i]].min;
@@ -59,7 +61,7 @@ getApplySettings(KEY_STORAGE_LOCAL_APPLYING_SETTINGS).then((applySettings) => {
             label.appendChild(input);
             cell2.appendChild(label);
 
-            localCopyApplySettings[key].value = parseInt(value); // Change a setting
+            localCopyApplySettings[key].value = Number(value); // Change a setting
             applySettingsUpdate();
         }
     }
@@ -147,7 +149,7 @@ function listenForClicks() {//TODO: Merge components with getApplySettings initi
                 try {
                     try {
                         const newSettings = JSON.parse(JSON.stringify(result)).applying_settings;
-                        newSettings[currentApplySettingKey].value = parseInt(e.target.value);
+                        newSettings[currentApplySettingKey].value = Number(e.target.value);
                         await browser.storage.local.set({"applying_settings": newSettings});
                         console.log("Storage set successfully");
                     }catch(e2){

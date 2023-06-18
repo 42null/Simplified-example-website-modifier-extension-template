@@ -1,0 +1,5 @@
+h1{
+    text-align: center;
+    background-color: green; /*TODO: Make use from projectConfig*/
+    border-radius: 100vh;
+}

@@ -1,0 +1,7 @@
+:root{
+    --content-width: 50%;
+}
+
+body.vsc-initialized > div{
+    width: var(--content-width);
+}

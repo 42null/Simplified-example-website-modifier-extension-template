@@ -1,7 +1,0 @@
-/* "Latest YouTube posts" section */
-#image-container.style-scope.ytd-backstage-image-renderer{
-    border-radius: 0 !important;
-}
-
-/*Focused image (larger when clicked) */
-/*As of now, it does not appear that YouTube is rounding the corners here inside the actual image, menu-like border has one which changing has not been decided yet.*/

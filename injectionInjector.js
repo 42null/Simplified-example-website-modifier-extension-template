@@ -113,15 +113,24 @@ determinedBrowserAPI.storage.onChanged.addListener((changes, areaName) => {
     }
 });
 
+function stateApprover(){
+    return window.location.pathname.split('/').pop() !== "popup.html";
+}
+
 // START INJECTOR BASED SETTINGS HELPERS
 function setInjectionStateHelper(state, id, filePath){
+
+    if(!stateApprover()){//Currently terminates if on popup.html, in the future more options may be available
+        return;
+    }
+
     if(typeof filePath == "undefined"){//Make id filepath for overloading
         if(typeof id == "undefined"){//If both undefined for overloading
             id = state;
             state = true;
         }
         filePath = id;
-        id = "returnUI_injected_CSS__"+filePath.substring((filePath.lastIndexOf("/")===-1 ? 0 : (filePath.lastIndexOf("/"))),filePath.lastIndexOf("."));
+        id = "exampleDemoProject_injected_CSS__"+filePath.substring((filePath.lastIndexOf("/")+1===-1 ? 0 : (filePath.lastIndexOf("/")+1)),filePath.lastIndexOf("."));
     }
     let element = document.getElementById(id);
 
@@ -156,15 +165,19 @@ function settingsToActions(){
         for (let i = 0; i < keys.length; i++) {
             const key = keys[i];
             const value = applySettings[keys[i]].value;
-
-            // if(key === "UN_ROUNDED_SEARCH"){
-            //     setInjectionStateHelper(value, "injection_parts/primary/searchbox.css");
-            // }else if(key === "SUBSCRIBE_BUTTON_COLOR"){
-            //     setInjectionStateHelper(value, "injection_parts/primary/subscribe_button_color.css");
-            // }
-            if(key === "NUMBER_VALUE_KEY"){
-                setProperty("example-extension-new-page-content-border-radius", value+"em");//TODO: Autogen variables
-                setInjectionStateHelper( "injection_parts/primary/homepage_videos_per_row.css");
+            
+            // Simple (value, location) when dealing with booleans, true adds css, false removes it by autogen ID
+            if(key === "BOOLEAN_VALUE_KEY") {
+                setInjectionStateHelper( value, "injection_parts/primary/greenH1.css");
+            }
+            /* CSS files requiring variables as properties use (variable-name-no-starting-dashes, value-to-be-set-to)
+               And then just (location) */
+            else if(key === "NUMBER_VALUE_KEY"){
+                setProperty("content-width", value+"%");//TODO: Autogen variables
+                setInjectionStateHelper( "injection_parts/primary/content_width.css");
+            }else if(key === "NUMBER_WITH_ALL_OPTIONS_KEY"){
+                setProperty("content-border-radius", value+"em");
+                setInjectionStateHelper( "injection_parts/primary/border_radius_em.css");
             }
         }
     }).catch((error) => {
@@ -175,20 +188,26 @@ function settingsToActions(){
 // Initial setup/initial receive
 console.log("Running initial applySettings...");
 settingsToActions();
+setTimeout(function(){
+    console.log("Executed after 1 second");
+    settingsToActions();
+}, 1000);
 
 
 // SPECIFICS TO YOUTUBE.COM
 /*
 * SPECIFIC TO YOUTUBE - listens for all video changes and re-applies
 * */
-const videoObserver = new MutationObserver((mutations) => {
-    mutations.forEach((mutation) => {
-        if (mutation.type === 'attributes' && mutation.attributeName === 'src') {
+// const videoObserver = new MutationObserver((mutations) => {
+//     mutations.forEach((mutation) => {
+//         if (mutation.type === 'attributes' && mutation.attributeName === 'src') {
+//
+//         }
+//     });
+// });
+//
+// // Observe changes
+// videoObserver.observe(document.querySelector("video"), { attributes: true, attributeFilter: ['src'] });
 
-        }
-    });
-});
 
-// Observe changes
-videoObserver.observe(document.querySelector("video"), { attributes: true, attributeFilter: ['src'] });
 

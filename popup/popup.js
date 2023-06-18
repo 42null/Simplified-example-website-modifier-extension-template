@@ -84,14 +84,14 @@ async function createAndPopulateTable(){
 
                 localCopyApplySettings[key].value = input.checked; // Change a setting
                 applySettingsUpdate();
-            }else if(Number.isInteger(parseInt(value))){
+            }else if(!isNaN(Number.parseFloat(value))){
                 const label = document.createElement("label");
                 label.classList.add("integerBox");
                 const input = document.createElement("input");
                 input.type = "number";
                 input.id = "idAuto_" + key;
                 input.name = "nameAuto_" + key;
-                input.value = parseInt(value);
+                input.value = Number(value);
                 // Check if input settings were provided
                 if(typeof applySettings[keys[i]].min){
                     input.min = applySettings[keys[i]].min;
@@ -111,7 +111,7 @@ async function createAndPopulateTable(){
                 label.appendChild(input);
                 cell2.appendChild(label);
 
-                localCopyApplySettings[key].value = parseInt(value); // Change a setting
+                localCopyApplySettings[key].value = Number(value); // Change a setting
                 applySettingsUpdate();
             }
         }
@@ -241,7 +241,7 @@ function listenForClicks() {//TODO: Merge components with getApplySettings initi
             e.value = e.target.checked;
             sendAdjustmentStateValue(e);
         } else if (e.target.type === "number") {
-            e.value = parseInt(e.target.value);
+            e.value = Number(e.target.value);
             sendAdjustmentStateValue(e);
         }
     });
@@ -306,6 +306,7 @@ function sendAdjustmentStateValue(event){
             try {
                 const newSettings = JSON.parse(JSON.stringify(result)).page_adjustment_states;
                 newSettings[currentApplySettingKey].value = value;
+                console.log("////"+value);
                 await determinedBrowserAPI.storage.local.set({"page_adjustment_states": newSettings});
                 console.log("Storage \""+currentApplySettingKey+"\" set to \""+value+"\"successfully");
             }catch(e2){
