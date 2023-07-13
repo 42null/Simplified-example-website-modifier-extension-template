@@ -3,6 +3,8 @@
 
 A template extension made to make development of new client-side website HTML5 behavior extremely simple 
 
+THIS PROJECT IS CONNECTED TO MY MULTI-PLATFORM EXTENSION GNERATOR APPLICATION AND RETURN-YOUTUBE-UI, UPDATES MAY TAKE TIME TO PROAGATE BETWEEN PROJECTS.
+
 #### Supported Browsers
 * Firefox
   * Main priority
