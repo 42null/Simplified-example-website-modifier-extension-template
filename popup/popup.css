@@ -110,11 +110,6 @@ button:hover {
   transition: .4s;
 }
 
-/*Does not have any effect*/
-/*.slider:after {*/
-/*  background-color: var(--md_light);*/
-/*}*/
-
 
 input + .slider:before {
   background-color: var(--md_light);
@@ -138,8 +133,8 @@ input:focus + .slider {
 }
 
 input:checked + .slider:before {
-  -ms-transform: translateX(117%);
-  transform: translateX(117%);
+  -ms-transform: translateX(130%);
+  transform: translateX(130%);
 }
 
 /* Rounded sliders */
